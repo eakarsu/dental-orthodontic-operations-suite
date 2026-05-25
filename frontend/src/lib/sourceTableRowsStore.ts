@@ -65,7 +65,13 @@ function seedRows(table: SourceDataTable): SourceTableRow[] {
   });
 }
 
+let rowsTableReady = false;
+let rowsTablePromise: Promise<Awaited<ReturnType<typeof ensurePostgres>>> | null = null;
+
 async function ensureRowsTable() {
+  if (rowsTableReady) return ensurePostgres();
+  if (rowsTablePromise) return rowsTablePromise;
+  rowsTablePromise = (async () => {
   const current = await ensurePostgres();
   await current.query(
     'CREATE TABLE IF NOT EXISTS source_table_rows (' +
@@ -73,10 +79,12 @@ async function ensureRowsTable() {
       'table_id TEXT NOT NULL,' +
       'payload JSONB NOT NULL,' +
       'updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()' +
-    ');' +
-    'CREATE INDEX IF NOT EXISTS source_table_rows_table_id_idx ON source_table_rows(table_id);',
+    ');',
   );
+  rowsTableReady = true;
   return current;
+  })();
+  return rowsTablePromise;
 }
 
 async function ensureRowsSeed(tableId: string) {
