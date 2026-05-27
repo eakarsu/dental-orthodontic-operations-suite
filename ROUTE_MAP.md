@@ -7,6 +7,9 @@ Primary routes:
 - `/profiles`
 
 Feature routes:
+- `/case-quality-review`
+- `/appliance-tracking`
+- `/lab-case-intake`
 - `/records`
 - `/appointments`
 - `/cases`

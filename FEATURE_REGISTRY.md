@@ -18,3 +18,13 @@
 - Profiles
 - AI Assistant
 - AI Tools
+
+## Dental Lab Case
+
+- Lab Case Intake
+- Appliance Tracking
+- Case Quality Review
+
+## Focused enhancement: Dental Lab Case
+
+Source evidence: AIDentalLabCaseManager.
