@@ -7,6 +7,10 @@ Primary routes:
 - `/profiles`
 
 Feature routes:
+- `/clinician-lab-messages`
+- `/remake-risk-review`
+- `/scan-file-intake`
+- `/shade-material-review`
 - `/case-quality-review`
 - `/appliance-tracking`
 - `/lab-case-intake`

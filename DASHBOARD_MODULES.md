@@ -8,3 +8,5 @@
 - Resources operating view
 - Approvals operating view
 - Exceptions operating view
+
+- Dental Lab Deep Workflows operating view
